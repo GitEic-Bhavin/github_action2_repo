@@ -1,6 +1,5 @@
 name: first-workflow
-on: 
-  workflow_dispatch
+on: workflow_dispatch
 jobs:
   first-job:
     runs-on: ubuntu-22.04
