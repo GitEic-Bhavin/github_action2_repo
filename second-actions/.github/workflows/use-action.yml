@@ -1,0 +1,29 @@
+name: Use Checkout Actions
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Git Checkout
+        # here we should't use `run:` to run a command to git checkout
+        # for that action is available. Use `uses`
+        uses: actions/checkout@v6
+        with:
+          ref: master
+        
+      - name: List docs
+        run: ls -l
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18\
+      
+      - name: Install npm
+        run: npm ci
+
+      - name: Run test
+        run: npm test
+
+      
+          
